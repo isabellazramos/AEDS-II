@@ -1,4 +1,4 @@
-#include "bst_tree.h"
+#include "binarysearchtree.h"
 
 int main(){
     NodeType *Tree;

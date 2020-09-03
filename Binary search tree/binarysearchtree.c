@@ -1,4 +1,4 @@
-#include "bst_tree.h"
+#include "binarysearchtree.h"
 
 void initializeBST(PointerType *node){
     *node = NULL;
