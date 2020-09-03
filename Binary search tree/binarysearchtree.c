@@ -48,3 +48,40 @@ void printPostOrder(PointerType Node){
     printOrder(Node->Right);
     printf("%d\n", Node->Reg.Key);
 }
+
+void searchingForKey(PointerType Node, RegType Key){
+
+    if(Node != NULL){
+        if(Node->Reg.Key == Key.Key){
+            printf("The key has been found!\n");
+        }
+        if(Key.Key < Node->Reg.Key){
+            searchingForKey(Node->Left,Key);
+        }
+        if(Key.Key > Node->Reg.Key){
+            searchingForKey(Node->Right,Key);
+        }
+    }else
+    {
+        printf("The key was not found :( \n");
+    }
+    
+}
+
+int treeHeight(PointerType Node){
+    if(Node == NULL){
+        return -1;
+    }
+    else{
+        int heightLeft = treeHeight(Node->Left);
+        int heightRight = treeHeight(Node->Right);
+        if(heightLeft < heightRight) return (heightRight + 1);
+        else return (heightLeft + 1);
+    }
+}
+
+void treeHeightResult(PointerType Node){
+
+    printf("The height of the tree is %d.\n",treeHeight(Node));
+
+}

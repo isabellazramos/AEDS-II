@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef long KeyType;
+typedef int KeyType;
 typedef struct RegType{
     KeyType Key;
 }RegType;
@@ -18,3 +18,7 @@ void insertBST(PointerType *Node, RegType Reg);
 void printOrder(PointerType Node);
 void printPreOrder(PointerType Node);
 void printPostOrder(PointerType Node);
+void searchingForKey(PointerType Node, RegType Key);
+int treeHeight(PointerType Node);
+void treeHeightResult(PointerType Node);
+void mainmenu();

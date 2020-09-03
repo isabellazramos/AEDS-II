@@ -1,6 +1,3 @@
 all:
-	gcc -o app main.c bst_tree.c bst_tree.h
-	./app
-
-run:
+	gcc -o app menu.c main.c binarysearchtree.c binarysearchtree.h 
 	./app
