@@ -21,4 +21,6 @@ void printPostOrder(PointerType Node);
 void searchingForKey(PointerType Node, RegType Key);
 int treeHeight(PointerType Node);
 void treeHeightResult(PointerType Node);
+void removeBST(PointerType *Node, RegType Reg);
+void predecessor(PointerType q, PointerType *r);
 void mainmenu();

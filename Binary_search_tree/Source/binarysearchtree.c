@@ -1,4 +1,4 @@
-#include "binarysearchtree.h"
+#include "../Header/binarysearchtree.h"
 
 void initializeBST(PointerType *node){
     *node = NULL;
@@ -84,4 +84,54 @@ void treeHeightResult(PointerType Node){
 
     printf("The height of the tree is %d.\n",treeHeight(Node));
 
+}
+
+void removeBST(PointerType *Node, RegType Reg){
+    PointerType Aux;
+    
+    if(*Node == NULL){
+        printf("Element does not exist or the tree is empty.\n");
+        return;
+
+    }
+    else
+    {
+        if(Reg.Key < (*Node)->Reg.Key){
+            removeBST(&(*Node)->Left,Reg);
+            return;
+        }
+        if(Reg.Key > (*Node)->Reg.Key){
+            removeBST(&(*Node)->Right,Reg);
+            return;
+        }
+        if(((*Node)->Right == NULL) && ((*Node)->Left != NULL)){
+            Aux = *Node;
+            *Node = (*Node)->Left;
+            free(Aux);
+            return;
+        }
+        if(((*Node)->Right != NULL) && ((*Node)->Left != NULL)){
+            predecessor(*Node,&(*Node)->Left);
+            return;
+        }
+        if(((*Node)->Right != NULL) && ((*Node)->Left == NULL)){
+            Aux = *Node;
+            *Node = (*Node)->Right;
+            free(Aux);
+            return;
+        }        
+    }
+    
+}
+
+void predecessor(PointerType q, PointerType *r){
+    PointerType aux;
+    if((*r)->Right != NULL){
+        predecessor(q,&(*r)->Right);
+        return;
+    }
+    q->Reg = (*r)->Reg;
+    aux = *r;
+    *r = (*r)->Left;
+    free(aux);
 }
