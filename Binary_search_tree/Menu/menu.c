@@ -18,6 +18,7 @@ void mainmenu(){
         printf("5 - find a key in the tree\n");
         printf("6 - tree height\n");
         printf("7 - remove key from tree\n");
+        printf("8 - print BFS\n");
         printf("\n0 - exit\n");
         printf("-----------------------------------------------------------------\n");
 
@@ -76,6 +77,9 @@ void mainmenu(){
             scanf("%d",&Reg.Key);
             removeBST(&Tree,Reg);
             printf("The key %d has been successfully removed!\n",Reg.Key);
+        }
+        if(option == 8){
+            printBFS(Tree);
         }
     }
     

@@ -1,4 +1,4 @@
-#include "../Header/binarysearchtree.h"
+#include "../Header/queue.h"
 
 void initializeBST(PointerType *node){
     *node = NULL;
@@ -134,4 +134,26 @@ void predecessor(PointerType q, PointerType *r){
     aux = *r;
     *r = (*r)->Left;
     free(aux);
+}
+
+void printBFS(PointerType Node){
+    QueueT queue;
+    initializeQueue(&queue);
+    if(Node != NULL){
+        toQueue(&queue,Node);
+        while (!checkEmptyQueue(queue))
+        {   
+            deQueue(&queue,&Node);
+            printf("%d", Node->Reg.Key);
+            if(Node->Left != NULL){
+                toQueue(&queue,Node->Left);
+            }
+            if(Node->Right != NULL){
+                toQueue(&queue,Node->Right);
+            }
+        }
+        
+    }else{
+        printf("The tree is empty\n");
+    }
 }

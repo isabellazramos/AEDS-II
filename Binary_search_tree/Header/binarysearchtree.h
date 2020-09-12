@@ -1,17 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-
-typedef int KeyType;
-typedef struct RegType{
-    KeyType Key;
-}RegType;
-
-typedef struct NodeType *PointerType;
-typedef struct NodeType{
-    RegType Reg;
-    PointerType Left, Right;
-}NodeType;
-
+#include "node.h"
 
 void initializeBST(PointerType *Node);
 void insertBST(PointerType *Node, RegType Reg);
@@ -23,4 +12,5 @@ int treeHeight(PointerType Node);
 void treeHeightResult(PointerType Node);
 void removeBST(PointerType *Node, RegType Reg);
 void predecessor(PointerType q, PointerType *r);
+void printBFS(PointerType Node);
 void mainmenu();
