@@ -27,5 +27,6 @@ void LL(PointerType *Node);
 void LR(PointerType *Node);
 void RR(PointerType *Node);
 void RL(PointerType *Node);
+void printSBB(PointerType Node);
 void mainmenu();
 
