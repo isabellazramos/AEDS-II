@@ -3,10 +3,9 @@
 #define TRUE  1
 #define FALSE 0
 
-typedef int KeyType;
 typedef struct RegType
 {
-    KeyType Key;
+    int Key;
 }RegType;
 
 typedef enum{

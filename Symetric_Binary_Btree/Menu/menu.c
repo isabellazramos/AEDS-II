@@ -1,7 +1,7 @@
 #include "../Header/sbb.h"
 
 void mainmenu(){
-    NodeType *Tree;
+    PointerType Tree;
     RegType Reg,Aux;
     int option = -1;
 
@@ -26,16 +26,9 @@ void mainmenu(){
             printf("\nType the key you want to insert into the tree:");
             scanf("%d",&Reg.Key);
             insertSBB(&Tree,Reg);
-            printf("The key %d has been successfully inserted!\n",Reg.Key);
         }
         if(option == 2){
-            if(Tree ==  NULL){
-                printf("The tree is empty.\n");
-            }else
-            {
-                printf("Printing in order:\n");
                 printSBB(Tree);
-            }
         }
         
     }
