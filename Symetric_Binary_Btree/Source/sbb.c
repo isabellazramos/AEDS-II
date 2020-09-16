@@ -127,3 +127,147 @@ void RL(PointerType *Node)
     *Node = Node2;
 }
 
+void leftShort( PointerType *Node, short *End){
+  PointerType Node1;
+  if((*Node)->BitL == Horizontal){
+    (*Node)->BitL = Vertical;
+    *End = TRUE;
+    return;
+  }
+  if((*Node)->BitR == Horizontal){
+    Node1 = (*Node)->Right;
+    (*Node)->Right = Node1->Left;
+    Node1->Left = *Node;
+    *Node = Node1;
+    
+    if((*Node)->Left->Right->BitL == Horizontal){
+      RL(&(*Node)->Left);
+      (*Node)->BitL = Horizontal;
+    }else if ((*Node)->Left->Right->BitR == Horizontal)
+    {
+      RR(&(*Node)->Left);
+      (*Node)->BitL = Horizontal;
+    }
+
+    *End = TRUE;
+    return;    
+  }
+  (*Node)->BitR = Horizontal;
+  if ((*Node)->Right->BitL == Horizontal)
+  {
+    RL(Node);
+    *End = TRUE;
+    return;
+  }
+  if((*Node)->Right->BitR == Horizontal)
+  {
+    RR(Node);
+    *End = TRUE;
+  }
+}
+
+void rightShort(PointerType *Node, short *End){
+  PointerType Node1;
+  if((*Node)->BitR == Horizontal){
+    (*Node)->BitR = Vertical;
+    *End = TRUE;
+    return;
+  }
+  if((*Node)->BitL == Horizontal){
+    Node1 = (*Node)->Left;
+    (*Node)->Left = Node1->Right;
+    Node1->Right = *Node;
+    *Node = Node1;
+    
+    if((*Node)->Right->Left->BitR == Horizontal){
+      LR(&(*Node)->Right);
+      (*Node)->BitR = Horizontal;
+    }else if ((*Node)->Right->Left->BitL == Horizontal)
+    {
+      LL(&(*Node)->Right);
+      (*Node)->BitR = Horizontal;
+    }
+
+    *End = TRUE;
+    return;    
+  }
+  (*Node)->BitL = Horizontal;
+  if ((*Node)->Left->BitR == Horizontal)
+  {
+    LR(Node);
+    *End = TRUE;
+    return;
+  }
+  if((*Node)->Left->BitL == Horizontal)
+  {
+    LL(Node);
+    *End = TRUE;
+  }
+}
+
+void antecessor(PointerType Aux, PointerType *Node,short *End){
+  if((*Node)->Right != NULL){
+    antecessor(Aux,&(*Node)->Right,End);
+    if(!*End){
+      leftShort(Node,End);
+      return;
+    }
+    Aux->Reg = (*Node)->Reg;
+    Aux = *Node;
+    *Node = (*Node)->Left;
+    free(Aux);
+    if(*Node !=NULL){
+      *End = TRUE;
+    }
+  }
+}
+
+void removeSBB(RegType Reg,PointerType *Node){
+  short End;
+  iremoveSBB(Reg,Node,&End);
+}
+
+void iremoveSBB(RegType Reg,PointerType *Node,short *End){
+  NodeType *Aux;
+  if(*Node ==  NULL){
+    printf("The key is not in the tree.\n");
+    *End = TRUE;
+    return;
+  }
+  if(Reg.Key < (*Node)->Reg.Key){
+    iremoveSBB(Reg,&(*Node)->Left,End);
+    if(!*End){
+      leftShort(Node,End);
+      return;
+    }
+  }
+  if(Reg.Key > (*Node)->Reg.Key){
+    iremoveSBB(Reg,&(*Node)->Right,End);
+    if(!*End){
+      rightShort(Node,End);
+      return;
+    }
+  }
+  *End = FALSE;
+  Aux = *Node;
+  if(Aux->Right == NULL){
+    *Node = Aux->Left;
+    free(Aux);
+    if(*Node != NULL){
+      *End = TRUE;
+      return;
+    }
+  }
+  if(Aux->Left == NULL){
+    *Node = Aux->Right;
+    free(Aux);
+    if(*Node != NULL){
+      *End = TRUE;
+      return;
+    }
+  }
+  antecessor(Aux,&Aux->Left,End);
+  if(!*End){
+    leftShort(Node,End);
+  }
+}

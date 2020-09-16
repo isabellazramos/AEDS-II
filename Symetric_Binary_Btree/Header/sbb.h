@@ -28,4 +28,9 @@ void RR(PointerType *Node);
 void RL(PointerType *Node);
 void printSBB(PointerType Node);
 void mainmenu();
+void leftShort( PointerType *Node, short *End);
+void rightShort(PointerType *Node, short *End);
+void antecessor(PointerType Aux, PointerType *Node,short *End);
+void removeSBB(RegType Reg,PointerType *Node);
+void iremoveSBB(RegType Reg,PointerType *Node,short *End);
 

@@ -13,6 +13,7 @@ void mainmenu(){
         printf("Choose one of the options below by typing the respective number:\n");
         printf("1 - insert into the tree\n");
         printf("2 - print\n");
+        printf("3 -  remove key\n");
         printf("\n0 - exit\n");
         printf("-----------------------------------------------------------------\n");
 
@@ -29,6 +30,11 @@ void mainmenu(){
         }
         if(option == 2){
                 printSBB(Tree);
+        }
+        if(option == 3){
+            printf("\n Type the key you want to remove into the tree:");
+            scanf("%d",&Reg.Key);
+            removeSBB(Reg,&Tree);
         }
         
     }
