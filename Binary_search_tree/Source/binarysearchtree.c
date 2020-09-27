@@ -157,3 +157,52 @@ void printBFS(PointerType Node){
         printf("The tree is empty\n");
     }
 }
+
+int numberOfNodes(PointerType Node){
+    if(Node == NULL){
+        return 0;
+    }
+    else{
+         return 1 + numberOfNodes(Node->Left) + numberOfNodes(Node->Right);
+    }
+}
+
+int biggestKey(PointerType Node){
+    while (Node != NULL)
+    {   
+        if(Node->Right != NULL){
+            biggestKey(Node->Right);
+            return;
+        }else{
+            return Node->Reg.Key;
+        }
+        
+    }
+    
+}
+
+void depthKey(PointerType Node,int Key){
+    int depth = 0;
+    depthKeyAux(Node,Key,depth);
+}
+void depthKeyAux(PointerType Node,int Key, int depth){
+    if(Node != NULL){
+        if(Key == Node->Reg.Key){
+            printf("Depth node: %d\n",depth);
+            return;
+        }
+        else if(Key < Node->Reg.Key){
+            depth++;
+            depthKeyAux(Node->Left,Key,depth);
+            return;
+        }
+        else if(Key > Node->Reg.Key){
+            depth++;
+            depthKeyAux(Node->Right,Key,depth);
+            return;
+        }        
+    }else{
+        printf("The key is not in the tree.\n");
+        return;
+    }
+}
