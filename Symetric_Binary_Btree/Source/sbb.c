@@ -2,7 +2,7 @@
 
 void initializeSBB(PointerType *Node)
 {
-    *Node == NULL;
+    *Node = NULL;
 }
 
 void insertSBB(PointerType *Node, RegType Key)
@@ -10,7 +10,9 @@ void insertSBB(PointerType *Node, RegType Key)
     short End;
     SlopeType Slope;
     iinsertSBB(Key, Node, &Slope, &End);
+    printf("%hi",End);
 }
+
 
 void iinsertSBB(RegType Key, PointerType *Node, SlopeType *Slope, short *End){
   if(*Node == NULL){
@@ -270,4 +272,16 @@ void iremoveSBB(RegType Reg,PointerType *Node,short *End){
   if(!*End){
     leftShort(Node,End);
   }
+}
+
+int treeHeight(PointerType Node){
+    if(Node == NULL){
+        return -1;
+    }
+    else{
+      int heightLeft = (Node->BitL == Vertical) + treeHeight(Node->Left);
+      int heightRight = (Node->BitR == Vertical) + treeHeight(Node->Right);
+      if(heightLeft > heightRight) return heightLeft;
+      else return heightRight;
+    }
 }

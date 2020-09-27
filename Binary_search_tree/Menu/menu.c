@@ -19,6 +19,9 @@ void mainmenu(){
         printf("6 - tree height\n");
         printf("7 - remove key from tree\n");
         printf("8 - print BFS\n");
+        printf("9 - number of nodes\n");
+        printf("10 - biggest key.\n");
+        printf("11 - depth.\n");
         printf("\n0 - exit\n");
         printf("-----------------------------------------------------------------\n");
 
@@ -80,6 +83,27 @@ void mainmenu(){
         }
         if(option == 8){
             printBFS(Tree);
+        }
+        if(option == 9){
+            int numberNodes = numberOfNodes(Tree);
+            printf("The tree has %d node(s).\n",numberNodes);
+        }
+        if(option == 10){
+            int bigKey = biggestKey(Tree);
+            if(Tree == NULL){
+                printf("The tree is empty\n");
+            }
+            else
+            {
+               printf("The biggest key in the tree is %d.\n",bigKey);
+            }
+
+            
+        }
+        if(option == 11){
+            printf("Type which key you want to find in the tree:");
+            scanf("%d",&Aux.Key);
+            depthKey(Tree,Aux.Key);
         }
     }
     

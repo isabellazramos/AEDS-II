@@ -14,6 +14,7 @@ void mainmenu(){
         printf("1 - insert into the tree\n");
         printf("2 - print\n");
         printf("3 -  remove key\n");
+        printf("4 - height tree\n ");
         printf("\n0 - exit\n");
         printf("-----------------------------------------------------------------\n");
 
@@ -35,6 +36,9 @@ void mainmenu(){
             printf("\n Type the key you want to remove into the tree:");
             scanf("%d",&Reg.Key);
             removeSBB(Reg,&Tree);
+        }
+        if(option == 4){
+            printf("%d\n",treeHeight(Tree));
         }
         
     }

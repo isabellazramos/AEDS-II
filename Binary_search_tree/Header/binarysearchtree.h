@@ -13,4 +13,8 @@ void treeHeightResult(PointerType Node);
 void removeBST(PointerType *Node, RegType Reg);
 void predecessor(PointerType q, PointerType *r);
 void printBFS(PointerType Node);
+int numberOfNodes(PointerType Node);
+int biggestKey(PointerType Node);
+void depthKey(PointerType Node,int Key);
+void depthKeyAux(PointerType Node,int Key, int depth);
 void mainmenu();

@@ -33,4 +33,4 @@ void rightShort(PointerType *Node, short *End);
 void antecessor(PointerType Aux, PointerType *Node,short *End);
 void removeSBB(RegType Reg,PointerType *Node);
 void iremoveSBB(RegType Reg,PointerType *Node,short *End);
-
+int treeHeight(PointerType Node);
