@@ -285,3 +285,14 @@ int treeHeight(PointerType Node){
       else return heightRight;
     }
 }
+
+int numberOfNodes(PointerType Node){
+    if(Node == NULL){
+        return 0;
+    }
+    else{
+         return 1 + numberOfNodes(Node->Left) + numberOfNodes(Node->Right);
+    }
+}
+
+

@@ -40,6 +40,10 @@ void mainmenu(){
         if(option == 4){
             printf("%d\n",treeHeight(Tree));
         }
+        if(option == 5){
+            int nodes = numberOfNodes(Tree);
+            printf("%d\n",nodes);
+        }
         
     }
     
