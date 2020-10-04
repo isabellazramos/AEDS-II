@@ -1,3 +1,3 @@
 all:
-	gcc -o app tst.c main2.c tst.h
+	gcc -o app Src/tst.c main2.c Header/tst.h
 	./app

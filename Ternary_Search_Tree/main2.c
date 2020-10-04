@@ -1,4 +1,4 @@
-#include "tst.h"
+#include "Header/tst.h"
 
 int main() 
 { 
@@ -19,6 +19,7 @@ int main()
         printf("1 - Inicializar TST\n");
         printf("2 - Ler arquivo e inserir na árvore\n");
         printf("3 - Printar árvore\n");
+        printf("4 - Quantidade de palavras.\n");
         printf("\n0-  Sair\n");
         printf("-----------------------------------------------------------------\n");
 
@@ -34,6 +35,9 @@ int main()
         }
         if(op == 3){
             imprimeTST(Arvore);
+        }
+        if(op == 4){
+            contarPalavrasTST(Arvore);
         }
     }
 }
