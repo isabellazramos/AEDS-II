@@ -1,0 +1,71 @@
+# TP1-AEDS2
+
+## Instalação
+
+Para compilar o programa, é necessário GCC instalado na sua máquina. Para executar, basta digitar no terminal dentro do projeto:
+
+```bash
+make all
+```
+## Utilização
+
+Ao executar o programa será exibido um menu para a seleção da árvore a qual se deseja realizar as operações e a opção para encerrar o programa.
+Para selecionar, basta digitar o número da opção e pressionar Enter.
+
+```bash
+|***************************************|
+|                 Menu                  |
+| Escolher arvore                       |
+| 1 - TRIE TST                          |
+| 2 - PATRICIA                          |
+| 0 - Encerrar                          |
+|***************************************|
+```
+Será então exibido o menu da árvore selecionada, novamente, será necessário digitar o número da opção desejada.
+
+```bash
+|***************************************|
+|                 Menu                  |
+|                                       |
+| Opcoes                                |
+| 1 - Ler arquivo e inserir na arvore   |
+| 2 - Inserir palavra                   |
+| 3 - Pesquisar palavra                 |
+| 4 - Exibir arvore                     |
+| 5 - Quantidade de palavras            |
+| 0 - Voltar                            |
+|***************************************|
+```
+
+Opções
+1 - Ler arquivo e inserir na árvore:
+      Insere as palavras de um arquivo selecionado pelo usuário caso já não estejam na árvore. Mostra o número de comparações feitas e tempo de execução e quantidade de memória alocada.
+      Deve-se digitar o nome e formato do arquivo, ex:"dicionario.txt".
+      O trabalho acompanha 4 arquivos de palavras em inglês para serem feitos os testes, sendo eles:
+      
+      1.1 dicionario.txt:
+          Contém 1009 palavras de tamanho variado em ordem alfabética.
+          
+      1.2 dicionario1.txt:
+          Mesmas palavras do dicionario.txt, porém desordenadas.
+      
+      1.3 prefix.txt
+          Contém 123 palavras com prefixos semelhantes em ordem alfabética.
+      
+      1.4 prefix1.txt
+          Mesmas palavras do prefix.txt, porém desordenadas.          
+
+2 - Inserir palavra:
+      Insere a palavra digitada pelo usuário se ela já não estiver na árvore. Mostra o número de comparações feitas e tempo de execução e quantidade de memória alocada.
+      
+3 - Pesquisar palavra:
+      Procura na árvore a palavra digitada pelo usuário. Mostra o número de comparações feitas e tempo de execução.
+      
+4 - Exibir árvore:
+      Exibe todas as palavras armazenadas na árvore.
+      
+5 - Quantidade de palavras:
+      Exibe o número de palavras armazenadas na árvore.  
+      
+0 - Voltar:
+      Retorna ao menu de seleção de árvore.
